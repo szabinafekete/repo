@@ -1,0 +1,90 @@
+﻿<Window x:Class="Atletika.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Atletika"
+        xmlns:model="clr-namespace:Atletika.Models" 
+        mc:Ignorable="d"
+        Title="Atletika" 
+        Height="400" Width="400"
+        Loaded="OnLoad">
+
+    <Window.DataContext>
+        <model:Eredmenyek/>
+    </Window.DataContext>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0"
+                    Orientation="Vertical"
+                    Margin="10">
+            <Label x:Name="lblVersenyzo" Content="Versenyző" />
+            <ComboBox x:Name="cbVersenyzo"
+                ItemsSource="{
+                    Binding Mode=TwoWay,
+                    Path=VersID,
+                    RelativeSource={RelativeSource FindAncestor, 
+                    AncestorType={x:Type Window}}}"
+                      DisplayMemberPath="Nev"
+                      SelectedValuePath="VersID"
+                      SelectedItem="{Binding Path=Versenyzo}"
+                      SelectedValue="{Binding Path=VersID}"
+                      Text="Válassz egy nevet!"
+                      />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0"
+                    Orientation="Vertical"
+                    Margin="10">
+            <Label x:Name="lblHelyszin" Content="Helyszín" />
+            <ComboBox x:Name="cbHelyszin"
+                ItemsSource="{
+                    Binding Mode=TwoWay,
+                    Path=HelyID,
+                    RelativeSource={RelativeSource FindAncestor, 
+                    AncestorType={x:Type Window}}}"
+                      DisplayMemberPath="Varos"
+                      SelectedValuePath="HelyID"
+                      SelectedItem="{Binding Path=Helyszin}"
+                      SelectedValue="{Binding Path=HelyID}"
+                      Text="Válassz egy Helyszínt!"
+                      />
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="0"
+                    Orientation="Vertical"
+                    Margin="10">
+            <Label x:Name="lblVersenyszam" Content="Verszenyszám" />
+            <TextBox x:Name="txtVersenyszam"
+                      Text="{
+                        Binding Mode=TwoWay, Path=Vsenyszam}"
+                      />
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="0"
+                    Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    Margin="10">
+            <Button x:Name="btnSubmit"
+                    Content="Mentés"
+                    Click="OnClick" 
+                    Height="30"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="0"
+                    Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    Margin="10">
+            <Button x:Name="btnExport"
+                    Content="Export"
+                    Click="OnExportClick" 
+                    Height="30"/>
+        </StackPanel>
+    </Grid>
+</Window>
