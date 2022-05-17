@@ -1,0 +1,248 @@
+{
+	"log": {
+		"version": "1.2",
+		"creator": {
+			"name": "Insomnia REST Client",
+			"version": "insomnia.desktop.app:v2022.3.0"
+		},
+		"entries": [
+			{
+				"startedDateTime": "2022-05-08T14:07:05.635Z",
+				"time": 19.666,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:5000/toplista/bi",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": "",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "71"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"47-Yz4n+Ih3fz4N3FevJSrui1x2xwQ\""
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 08 May 2022 13:41:20 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 71,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "[{\"mennyiseg\":22849,\"nev\":\"BMV i3\"},{\"mennyiseg\":31734,\"nev\":\"BMV i3\"}]"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 19.666,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "toplista/bi"
+			},
+			{
+				"startedDateTime": "2022-05-08T14:07:05.635Z",
+				"time": 20.872999999999998,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:5000/toplista",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": "",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "730"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"2da-30u1ar/rdnRh+1oMJSLeyJwHZIw\""
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 08 May 2022 13:18:58 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 730,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "[{\"id\":\"aet\",\"nev\":\"Audi e-Torn\"},{\"id\":\"b330\",\"nev\":\"BMV 330 PHEV\"},{\"id\":\"bi\",\"nev\":\"BMV i3\"},{\"id\":\"fk\",\"nev\":\"Ford Kuga PHEV\"},{\"id\":\"hk\",\"nev\":\"Hyundai Kona EV\"},{\"id\":\"kn\",\"nev\":\"Kia Niro EV\"},{\"id\":\"ma250\",\"nev\":\"Mercedes A250 EV\"},{\"id\":\"mglc\",\"nev\":\"Mercedes GLC300e PEV\"},{\"id\":\"mo\",\"nev\":\"Mitsubishi Outlander PHEV\"},{\"id\":\"nl\",\"nev\":\"Nissan Feaf\"},{\"id\":\"p208\",\"nev\":\"Peugeot 208 Ev\"},{\"id\":\"rz\",\"nev\":\"Renault Zoe\"},{\"id\":\"sft\",\"nev\":\"Smart For Two EV\"},{\"id\":\"tm3\",\"nev\":\"Tesla Model 3\"},{\"id\":\"vwu\",\"nev\":\"Volswagen e-Up!\"},{\"id\":\"vwg\",\"nev\":\"Volswagen Golf\"},{\"id\":\"vwid3\",\"nev\":\"Volswagen ID3\"},{\"id\":\"vwp\",\"nev\":\"Volswagen Passat\"},{\"id\":\"vxc40\",\"nev\":\"Volvo XC40 PHEV\"},{\"id\":\"vxc60\",\"nev\":\"Volvo XC60T8 PHEV\"}]"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 20.872999999999998,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "toplista"
+			},
+			{
+				"startedDateTime": "2022-05-08T14:07:05.635Z",
+				"time": 4.141,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:5000/eladas",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": "",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"name": "Content-Length",
+							"value": "484"
+						},
+						{
+							"name": "ETag",
+							"value": "W/\"1e4-mYfQe7yTtvQIIB71rcE98x3cIvc\""
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 08 May 2022 11:16:46 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"name": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"content": {
+						"size": 484,
+						"mimeType": "application/json; charset=utf-8",
+						"text": "[{\"ev\":2014,\"elektromos\":100060,\"hagyomanyos\":12996324,\"novekedes\":1},{\"ev\":2015,\"elektromos\":193493,\"hagyomanyos\":14192584,\"novekedes\":1},{\"ev\":2016,\"elektromos\":222619,\"hagyomanyos\":15118305,\"novekedes\":1},{\"ev\":2017,\"elektromos\":306143,\"hagyomanyos\":5610239,\"novekedes\":5},{\"ev\":2018,\"elektromos\":386347,\"hagyomanyos\":5605746,\"novekedes\":7},{\"ev\":2019,\"elektromos\":564206,\"hagyomanyos\":15805658,\"novekedes\":4},{\"ev\":2020,\"elektromos\":1367138,\"hagyomanyos\":11961182,\"novekedes\":11}]"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 4.141,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "eladas"
+			}
+		]
+	}
+}
