@@ -1,0 +1,153 @@
+Mappastruktúra kialakítása
+Fõmappa elkészítése
+	client mappa
+		könyvtárak telepítése
+* npx create-react-app . (react app)
+* npm i bootstrap
+* npm i axios
+* npm i react-router-dom (Link, Routes)
+      alapértelmezett fájlok törlése
+      src mappába marad 
+* App.css
+* App, js
+* index.js
+program elindítása
+* npm start
+	server mappa
+		npm init -y (package.json)
+		npm i nodemon
+		npm i cors
+		npm i express
+		npm i mysql
+
+Client
+Bootstrap import – App.js
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+EZ LEGYEN AZ ELSÕ IMPORT, UTÁNA A CSS FÁJLUNK, HOGY FELÜLÍRJA
+Fotó importálása
+import grafikon1 from './img/20190507PHT44968_original.jpg';
+
+Alap komponens fájl létrehozása
+rfc+tab majd átírni az alábbi kódra
+import React from 'react'
+import axios from 'axios';
+
+export const Eladas =()=> {
+    return (
+      <div>Eladas</div>
+    )
+  }
+
+Komponensek importálása
+import {Eladas} from './components/Eladas';
+ 
+Szerver
+ConfigDb fájl létrehozása
+const configDb={
+    host     : '127.0.0.1',
+    port     : '3308',
+    user     : 'root',
+    password : '',
+    database : 'eauto',
+    multipleStatements :true
+}
+module.exports=configDb
+
+react sql server connection
+Index fájl létrehozása
+const express = require('express');
+const cors = require('cors');
+const mysql = require('mysql');
+const configDb = require('./configDb');
+
+const db = mysql.createConnection(configDb)
+
+const app = express()
+app.use(cors())
+app.use(express.json())
+
+app.listen(5000, ()=> console.log('listening on port 5000...'))
+
+Server indítása
+npx nodemon index
+Get kérések szerver oldalon
+app.get('/eladas', (req, resp)=>{
+    const sql = "select ev, elektromos, hagyomanyos, round(elektromos/hagyomanyos*100,2) as novekedes from eu_world order by ev"
+    db.query(sql, (err, result)=>{
+        if(err) console.log(err)
+        if(result) resp.status(200).send(result)
+    })
+})
+
+app.get('/toplista/:id', (req, resp)=>{
+    const {id} = req.params
+    const sql = `select a.mennyiseg, b.nev from eu_eladas_data a, etipusok b where a.etipusID = b.id and b.id ='${id}'`
+    db.query(sql, (err, result)=>{
+        if(err) console.log(err)
+        if(result) resp.status(200).send(result)
+    })
+})
+
+Lekérdezés adatainak megjelenítési kliens oldalon
+    const [eladasok, setEladasok] = useState([])
+
+    useEffect(()=>{
+        const url ="http://localhost:5000/eladas"
+        fetchEladasok(url)
+    },[])
+
+    const fetchEladasok = async (url)=>{
+        const resp = await axios.get(url)
+        console.log(resp.data)
+        setEladasok(resp.data)
+    }
+
+    const handleClick=()=>{
+        console.log(selTipus)
+
+        const url=`http://localhost:5000/toplista/${selTipus}`
+        fetchSelTipusok(url)
+    }
+
+    const fetchSelTipusok = async (url)=>{
+        const resp = await axios.get(url)
+        console.log(resp.data)
+        setSelTipusok(resp.data)
+    }
+
+Select menübe sql adatok megjelenítése
+<select name="eladas" className="form-select">
+    <option value="0">Válasszon évet...</option>
+    {eladasok.map(obj=>
+        <option key={obj.ev} value={obj.ev}>{obj.ev}</option>)}  
+</select>
+
+Router menu
+import {BrowserRouter, Routes, Route } from 'react-router-dom';
+
+<BrowserRouter>
+   <TopBar />
+   <Routes>
+       <Route path="/" element={<Home />}/>
+       <Route path="/statisztika" element={<Statistics trees={trees} setTrees={setTrees}/>}/>
+       <Route path="/szures" element={<FilterHome trees={trees} setTrees={setTrees} selCounty={selCounty} setSelCounty={setSelCounty}/>}/>
+       <Route path="/szures:id" element={<Filter trees={trees} setTrees={setTrees} selCounty={selCounty} setSelCounty={setSelCounty}/>}/>
+       <Route path="/torles" />
+   </Routes>
+</BrowserRouter>
+
+Kattintás után adatok megjelenítése
+<select name="eladas" className="form-select" onChange={(e)=>setSelEv(e.target.value)}>
+
+<input className='btn btn-outline-secondary mt-3' type="submit" onClick={handleClick} value="Adatok" />
+
+    const handleClick=()=>{
+        console.log(selEv)
+        let newArr = eladasok.filter(obj=>obj.ev==selEv)
+        console.log(newArr[0])
+        setSelEladas({ev: newArr[0].ev, elektromos: newArr[0].elektromos, hagyomanyos: newArr[0].hagyomanyos, novekedes: newArr[0].novekedes})
+    }
+
+Dátum formátum
+date_format(mezo-neve, '%Y-%m-%d') as datum
+
